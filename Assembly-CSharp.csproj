@@ -64,8 +64,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Script\Ai.cs" />
+    <Compile Include="Assets\Script\joueurMouvement.cs" />
     <Compile Include="Assets\Script\mouselook.cs" />
-    <Compile Include="Assets\joueurMouvement.cs" />
     <None Include="Assets\MedievalTownExteriors\Readme.txt" />
     <None Include="Assets\MedievalTownExteriors\Readme FIRST!.txt" />
     <Reference Include="UnityEngine">

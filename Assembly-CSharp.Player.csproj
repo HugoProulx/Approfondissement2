@@ -610,8 +610,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Script\Ai.cs" />
+    <Compile Include="Assets\Script\joueurMouvement.cs" />
     <Compile Include="Assets\Script\mouselook.cs" />
-    <Compile Include="Assets\joueurMouvement.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\MedievalTownExteriors\Readme FIRST!.txt" />
