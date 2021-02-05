@@ -5,7 +5,7 @@ using UnityEngine;
 public class Ai : MonoBehaviour
 {
     public float vitesseDeMouvement = 3f;
-    public float vitesseDeRotation = 100f;
+    public float vitesseDeRotation = 2f;
 
     private bool marche = false;
     private bool tourneGaucheGlobal = false;
@@ -15,10 +15,31 @@ public class Ai : MonoBehaviour
 
 
 
+    public Transform verificateurDeMur;
+    public float verificateurDistance = 0.4f;
+
+    RaycastHit hit;
+    public LayerMask murMask;
+    bool touchMur;
+
+
+
+
 
     // Update is called once per frame
     void Update()
     {
+        if (Physics.Raycast(verificateurDeMur.transform.position, verificateurDeMur.transform.forward, out hit, 100f))
+        {
+            if (hit.transform.gameObject.layer == 8)
+            {
+                StartCoroutine(Tourne());
+
+            }
+
+        }
+
+
         if (!marche)
         {
             //En utilisant le "StratCoroutine" cette technique est telle utiliser un multitread
@@ -44,9 +65,9 @@ public class Ai : MonoBehaviour
     IEnumerator Marche()
     {
         //Création de variable, ces variables ont pour utiliter de créer des valeurs aléatoires pour rendre les mouvements du personnages plus agérable visuellement grâce à l'aspect aléatoire.
-        int tempsDeRotation = Random.Range(1, 3);
+        int tempsDeRotation = Random.Range(1, 2);
         int tempsEntreRotation = Random.Range(3, 5);
-        bool tourneGauche = 1 == Random.Range(1, 2);
+        bool tourneGauche = (1 == Random.Range(0, 1));
         int tempsDAttente = Random.Range(1, 4);
         int tempsDeMarche = Random.Range(1, 5);
 
@@ -60,7 +81,33 @@ public class Ai : MonoBehaviour
         yield return new WaitForSeconds(tempsDeMarche);
         entrainDeMarcher = false;
         yield return new WaitForSeconds(tempsEntreRotation);
-        
+
+        if (tourneGauche)
+        {
+            tourneGaucheGlobal = true;
+            yield return new WaitForSeconds(tempsDeRotation);
+            tourneGaucheGlobal = false;
+        }
+        else
+        {
+            tourneDroiteGlobal = true;
+            yield return new WaitForSeconds(tempsDeRotation);
+            tourneDroiteGlobal = false;
+        }
+        marche = false;
+
+    }
+    IEnumerator Tourne()
+    {
+        //Création de variable, ces variables ont pour utiliter de créer des valeurs aléatoires pour rendre les mouvements du personnages plus agérable visuellement grâce à l'aspect aléatoire.
+        int tempsDeRotation = Random.Range(1, 2);
+        bool tourneGauche = 1 == Random.Range(1, 2);
+
+        //En mettant "marche" à vrai, aucun autre "Tread" de marche va recommencer.
+        //Cela tant que marche va rester vrai
+        marche = true;
+
+        //yield return new WaitForSeconds permet de faire attendre le programme pour un temps donner.
         if (tourneGauche)
         {
             tourneGaucheGlobal = true;

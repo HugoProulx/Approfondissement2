@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class joueurMouvement : MonoBehaviour
 {
+
     public float vitesse = 12f;
     public float graviter = -20f;
     public float sautPuissance = 3f;
@@ -18,8 +19,10 @@ public class joueurMouvement : MonoBehaviour
 
     public CharacterController controller;
 
-    // Update is called once per frame
-    void Update()
+
+
+        // Update is called once per frame
+        void Update()
     {
 
         touchSol = Physics.CheckSphere(verificateurDeSol.position, verificateurDistance, solMask);
@@ -44,6 +47,7 @@ public class joueurMouvement : MonoBehaviour
         velocity.y += graviter * Time.deltaTime;
 
         controller.Move(velocity * Time.deltaTime);
+        
          
 
 
