@@ -611,13 +611,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Script\Ai.cs" />
+    <Compile Include="Assets\Script\ControleMenu.cs" />
     <Compile Include="Assets\Script\ControllerDAnimation.cs" />
+    <Compile Include="Assets\Script\MenuPause.cs" />
     <Compile Include="Assets\Script\joueurMouvement.cs" />
     <Compile Include="Assets\Script\mouselook.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\MedievalTownExteriors\Readme FIRST!.txt" />
     <None Include="Assets\MedievalTownExteriors\Readme.txt" />
+    <None Include="Assets\Police\More Info.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

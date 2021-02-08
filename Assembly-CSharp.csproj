@@ -65,10 +65,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Script\Ai.cs" />
+    <Compile Include="Assets\Script\ControleMenu.cs" />
     <Compile Include="Assets\Script\ControllerDAnimation.cs" />
+    <Compile Include="Assets\Script\MenuPause.cs" />
     <Compile Include="Assets\Script\joueurMouvement.cs" />
     <Compile Include="Assets\Script\mouselook.cs" />
     <None Include="Assets\MedievalTownExteriors\Readme.txt" />
+    <None Include="Assets\Police\More Info.txt" />
     <None Include="Assets\MedievalTownExteriors\Readme FIRST!.txt" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.18f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
