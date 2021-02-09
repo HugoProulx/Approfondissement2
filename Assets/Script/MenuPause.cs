@@ -3,14 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
+//Script qui gère tous ce qui est relier au menu de pause du jeu.
 public class MenuPause : MonoBehaviour
 {
+	//Déclaration des variables.
     public static bool jeuEnPause = false;
     public GameObject menuDePause;
     private int menuSceneID = 0;
-    // Update is called once per frame
+    // Update est la méthode qui est appelée à chaque itération du jeu, plus communément appeler "frame".
     void Update()
     {
+		//Vérificateur d'entrée de la touche "Échapp."(ESC)
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (jeuEnPause)
@@ -24,6 +28,7 @@ public class MenuPause : MonoBehaviour
         }
     }
 
+	//Méthode exécuter lors de l'appui du bouton "Résumer".
     public void Resumer()
     {
         menuDePause.SetActive(false);
@@ -31,6 +36,7 @@ public class MenuPause : MonoBehaviour
         jeuEnPause = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
+	//Méthode exécuter lorsque le joueur appuie sur la touche "Échapp.".
     private void Pause()
     {
         Cursor.lockState = CursorLockMode.None;
@@ -38,11 +44,13 @@ public class MenuPause : MonoBehaviour
         Time.timeScale = 0f;
         jeuEnPause = true;
     } 
+	//Méthode exécuter lors de l'appui du bouton "Menu principale".
     public void MenuPrincipale()
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(menuSceneID);
     }
+	//Méthpde exécuter lors de l'appui du bouton "Quitter".
     public void QuitterJeu()
     {
         Debug.Log("Jeu Quitter");
