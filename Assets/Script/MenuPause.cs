@@ -35,11 +35,13 @@ public class MenuPause : MonoBehaviour
         Time.timeScale = 1f;
         jeuEnPause = false;
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 	//Méthode exécuter lorsque le joueur appuie sur la touche "Échapp.".
     private void Pause()
     {
         Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         menuDePause.SetActive(true);
         Time.timeScale = 0f;
         jeuEnPause = true;

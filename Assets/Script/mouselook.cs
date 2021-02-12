@@ -14,6 +14,7 @@ public class mouselook : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     // Update est la méthode qui est appelée à chaque itération du jeu, plus communément appeler "frame".
